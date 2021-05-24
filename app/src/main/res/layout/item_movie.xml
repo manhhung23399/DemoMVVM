@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="movie"
+            type="com.example.demomvvm.data.model.MovieResponse" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15">
+
+        <ImageView
+            android:id="@+id/imageMovie"
+            loadImage="@{movie.posterPath}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1:0.7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@{movie.title}"
+            app:layout_constraintDimensionRatio="1:0.08"
+            app:layout_constraintStart_toEndOf="@id/imageMovie"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.7" />
+
+        <TextView
+            android:id="@+id/textVote"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@{Double.toString(movie.voteAverage)}"
+            app:layout_constraintDimensionRatio="1:0.08"
+            app:layout_constraintStart_toEndOf="@id/imageMovie"
+            app:layout_constraintTop_toBottomOf="@id/textTitle"
+            app:layout_constraintWidth_percent="0.7" />
+
+        <TextView
+            android:id="@+id/textOverView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@{movie.overview}"
+            app:layout_constraintDimensionRatio="1:0.14"
+            app:layout_constraintStart_toEndOf="@id/imageMovie"
+            app:layout_constraintTop_toBottomOf="@id/textVote"
+            app:layout_constraintWidth_percent="0.7" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
